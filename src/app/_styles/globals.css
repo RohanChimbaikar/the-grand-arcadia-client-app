@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+/* =========================================================
+   THEME TOKENS
+   ========================================================= */
+
+@theme {
+  /* =======================================================
+     PRIMARY — Slate Blue
+     ======================================================= */
+
+  --color-primary-50: #e1e8ef;
+  --color-primary-100: #d4dee7;
+  --color-primary-200: #b7c7d7;
+  --color-primary-300: #99b0c7;
+  --color-primary-400: #7c99b6;
+  --color-primary-500: #5e82a6;
+  --color-primary-600: #4c6b8a;
+  --color-primary-700: #3c546c;
+  --color-primary-800: #2c3d4f;
+  --color-primary-900: #1b2631;
+  --color-primary-950: #141c24;
+
+  /* =======================================================
+     ACCENT — Warm Gold
+     ======================================================= */
+
+  --color-accent-50: #faf5f0;
+  --color-accent-100: #f4ece1;
+  --color-accent-200: #e8d6bf;
+  --color-accent-300: #ddc2a2;
+  --color-accent-400: #d2af84;
+  --color-accent-500: #c69963;
+  --color-accent-600: #b78343;
+  --color-accent-700: #926835;
+  --color-accent-800: #6c4d28;
+  --color-accent-900: #4b351b;
+  --color-accent-950: #382814;
+
+  /* =======================================================
+     GREY — Warm Neutral
+     ======================================================= */
+
+  --color-grey-50: #f8fafc;
+  --color-grey-100: #f1f5f9;
+  --color-grey-200: #e2e8f0;
+  --color-grey-300: #cbd5e1;
+  --color-grey-400: #94a3b8;
+  --color-grey-500: #64748b;
+  --color-grey-600: #475569;
+  --color-grey-700: #334155;
+  --color-grey-800: #1e293b;
+  --color-grey-900: #0f172a;
+  --color-grey-950: #020617;
+
+  /* =======================================================
+     SUCCESS
+     ======================================================= */
+
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+
+  /* =======================================================
+     WARNING
+     ======================================================= */
+
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+
+  /* =======================================================
+     ERROR
+     ======================================================= */
+
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+
+  /* =======================================================
+     INFO
+     ======================================================= */
+
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-200: #bfdbfe;
+  --color-info-300: #93c5fd;
+  --color-info-400: #60a5fa;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+  --color-info-800: #1e40af;
+  --color-info-900: #1e3a8a;
+
+  /* =======================================================
+     SHADOWS
+     ======================================================= */
+
+  --shadow-soft: 0 2px 10px rgb(15 23 42 / 5%);
+  --shadow-card: 0 4px 20px rgb(15 23 42 / 8%);
+  --shadow-elevated: 0 10px 30px rgb(15 23 42 / 10%);
+
+  /* =======================================================
+     RADIUS
+     ======================================================= */
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+}
+
+/* =========================================================
+   DARK MODE
+   Same variable names — different values
+   ========================================================= */
+
+.dark {
+  /* =======================================================
+     PRIMARY — Slate Blue
+     ======================================================= */
+
+  --color-primary-50: #141c24;
+  --color-primary-100: #1b2631;
+  --color-primary-200: #2c3d4f;
+  --color-primary-300: #3c546c;
+  --color-primary-400: #4c6b8a;
+  --color-primary-500: #5e82a6;
+  --color-primary-600: #7c99b6;
+  --color-primary-700: #99b0c7;
+  --color-primary-800: #b7c7d7;
+  --color-primary-900: #d4dee7;
+  --color-primary-950: #e1e8ef;
+
+  /* =======================================================
+     ACCENT — Warm Gold
+     ======================================================= */
+
+  --color-accent-50: #382814;
+  --color-accent-100: #4b351b;
+  --color-accent-200: #6c4d28;
+  --color-accent-300: #926835;
+  --color-accent-400: #b78343;
+  --color-accent-500: #c69963;
+  --color-accent-600: #d2af84;
+  --color-accent-700: #ddc2a2;
+  --color-accent-800: #e8d6bf;
+  --color-accent-900: #f4ece1;
+  --color-accent-950: #faf5f0;
+
+  /* =======================================================
+     GREY — Dark Neutral
+     ======================================================= */
+
+  --color-grey-50: #020617;
+  --color-grey-100: #0f172a;
+  --color-grey-200: #1e293b;
+  --color-grey-300: #334155;
+  --color-grey-400: #475569;
+  --color-grey-500: #64748b;
+  --color-grey-600: #94a3b8;
+  --color-grey-700: #cbd5e1;
+  --color-grey-800: #e2e8f0;
+  --color-grey-900: #f1f5f9;
+  --color-grey-950: #f8fafc;
+
+  /* =======================================================
+     SUCCESS
+     ======================================================= */
+
+  --color-success-50: #052e16;
+  --color-success-100: #14532d;
+  --color-success-200: #166534;
+  --color-success-300: #15803d;
+  --color-success-400: #16a34a;
+  --color-success-500: #22c55e;
+  --color-success-600: #4ade80;
+  --color-success-700: #86efac;
+  --color-success-800: #bbf7d0;
+  --color-success-900: #dcfce7;
+
+  /* =======================================================
+     WARNING
+     ======================================================= */
+
+  --color-warning-50: #451a03;
+  --color-warning-100: #78350f;
+  --color-warning-200: #92400e;
+  --color-warning-300: #b45309;
+  --color-warning-400: #d97706;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #fbbf24;
+  --color-warning-700: #fcd34d;
+  --color-warning-800: #fde68a;
+  --color-warning-900: #fef3c7;
+
+  /* =======================================================
+     ERROR
+     ======================================================= */
+
+  --color-error-50: #450a0a;
+  --color-error-100: #7f1d1d;
+  --color-error-200: #991b1b;
+  --color-error-300: #b91c1c;
+  --color-error-400: #dc2626;
+  --color-error-500: #ef4444;
+  --color-error-600: #f87171;
+  --color-error-700: #fca5a5;
+  --color-error-800: #fecaca;
+  --color-error-900: #fee2e2;
+
+  /* =======================================================
+     INFO
+     ======================================================= */
+
+  --color-info-50: #172554;
+  --color-info-100: #1e3a8a;
+  --color-info-200: #1e40af;
+  --color-info-300: #1d4ed8;
+  --color-info-400: #2563eb;
+  --color-info-500: #3b82f6;
+  --color-info-600: #60a5fa;
+  --color-info-700: #93c5fd;
+  --color-info-800: #bfdbfe;
+  --color-info-900: #dbeafe;
+}
+
+@layer components {
+  .spinner {
+    margin: 3.2rem auto 1.6rem;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid var(--color-primary-900);
+    border-right-color: var(--color-primary-200);
+    animation: rotate 1s infinite linear;
+  }
+
+  .spinner-mini {
+    margin: 0;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary-200);
+    border-right-color: transparent;
+    animation: rotate 1s infinite linear;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+}
+
+/* For date picker */
+
+.rdp {
+  --rdp-cell-size: 32px !important;
+  --rdp-accent-color: var(--color-accent-500) !important;
+  --rdp-background-color: var(--color-accent-600) !important;
+  margin: 0 !important;
+}
