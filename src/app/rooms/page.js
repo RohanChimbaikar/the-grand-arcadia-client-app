@@ -1,13 +1,17 @@
-import CabinList from "@/src/app/_components/CabinList";
-
 import { Suspense } from "react";
 import Spinner from "../_components/Spinner";
+import RoomList from "../_components/RoomList";
+import Filter from "../_components/Filter";
 
 export const metadata = {
   title: "Rooms",
 };
 
-export default async function Page() {
+export const revalidate = 3600;
+
+export default async function Page({ searchParams }) {
+  const { capacity: filter = "all" } = await searchParams;
+
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -22,8 +26,12 @@ export default async function Page() {
         Welcome to paradise.
       </p>
 
-      <Suspense fallback={<Spinner />}>
-        <CabinList />
+      <div className="flex mb-8 justify-end">
+        <Filter />
+      </div>
+
+      <Suspense fallback={<Spinner />} key={filter}>
+        <RoomList filter={filter} />
       </Suspense>
     </div>
   );

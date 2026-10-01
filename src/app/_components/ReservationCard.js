@@ -1,6 +1,7 @@
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { format, formatDistance, isPast, isToday, parseISO } from "date-fns";
 import DeleteReservation from "@/src/app/_components/DeleteReservation";
+import Image from "next/image";
 
 export const formatDistanceFromNow = (dateStr) =>
   formatDistance(parseISO(dateStr), new Date(), {
@@ -24,14 +25,14 @@ function ReservationCard({ booking }) {
   return (
     <div className="flex border border-primary-800">
       <div className="relative h-32 aspect-square">
-        <img
+        <Image
           src={image}
           alt={`Cabin ${name}`}
           className="object-cover border-r border-primary-800"
         />
       </div>
 
-      <div className="flex-grow px-6 py-3 flex flex-col">
+      <div className="grow px-6 py-3 flex flex-col">
         <div className="flex items-center justify-between">
           <h3 className="text-xl font-semibold">
             {numNights} nights in Cabin {name}
@@ -67,10 +68,10 @@ function ReservationCard({ booking }) {
         </div>
       </div>
 
-      <div className="flex flex-col border-l border-primary-800 w-[100px]">
+      <div className="flex flex-col border-l border-primary-800 w-25">
         <a
           href={`/account/reservations/edit/${id}`}
-          className="group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900"
+          className="group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900"
         >
           <PencilSquareIcon className="h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors" />
           <span className="mt-1">Edit</span>

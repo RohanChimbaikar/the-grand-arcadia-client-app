@@ -10,7 +10,7 @@ function CabinCard({ cabin }) {
   return (
     <div className="flex border border-primary-800">
       {/* Image */}
-      <div className="relative w-1/3 min-h-[265px] shrink-0">
+      <div className="relative w-1/3 min-h-66.25 shrink-0">
         <Image
           src={image}
           alt={`Room ${name}`}

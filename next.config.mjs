@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     qualities: [80, 100],
+    
 
     remotePatterns: [
       {
@@ -16,6 +17,7 @@ const nextConfig = {
       },
     ],
   },
+  // output: "export",
 };
 
 export default nextConfig;

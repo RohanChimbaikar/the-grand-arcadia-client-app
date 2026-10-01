@@ -283,3 +283,65 @@
   --rdp-background-color: var(--color-accent-600) !important;
   margin: 0 !important;
 }
+
+/* Custom scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+/* Chrome, Edge, Safari */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 999px;
+}
+
+/* Show scrollbar thumb while scrolling */
+html:active::-webkit-scrollbar-thumb {
+  background: var(--color-accent-200);
+}
+
+.my-calendar.rdp {
+  width: 100%;
+  margin: 0 !important;
+
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: var(--color-accent-500);
+  --rdp-background-color: var(--color-accent-600);
+}
+
+.my-calendar .rdp-months {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  gap: 3rem;
+}
+
+.my-calendar .rdp-month {
+  flex: 1;
+}
+
+.my-calendar .rdp-month_caption {
+  padding: 0 0.5rem;
+}
+
+.my-calendar .rdp-weekdays {
+  margin-bottom: 0.5rem;
+}
+
+.my-calendar .rdp-day {
+  padding: 0;
+}
+
+.my-calendar .rdp-day_button {
+  width: 40px;
+  height: 40px;
+}

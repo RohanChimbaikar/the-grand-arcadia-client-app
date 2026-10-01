@@ -3,8 +3,11 @@ import {
   MapPinIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
-import { getCabin } from "../../_lib/data-service";
+import { getCabin, getCabins } from "../../_lib/data-service";
 import Image from "next/image";
+import TextExpander from "../../_components/TextExpander";
+import DateSelector from "../../_components/DateSelector";
+import ReservationForm from "../../_components/ReservationForm";
 
 export async function generateMetadata({ params }) {
   const { roomId } = await params;
@@ -13,6 +16,15 @@ export async function generateMetadata({ params }) {
   return {
     title: `${name}`,
   };
+}
+
+export async function generateStaticParams() {
+  const rooms = await getCabins();
+  const ids = rooms.map((room) => ({
+    roomId: String(room.id),
+  }));
+
+  return ids;
 }
 
 export default async function Page({ params }) {
@@ -35,11 +47,13 @@ export default async function Page({ params }) {
         </div>
 
         <div>
-          <h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
+          <h3 className="text-accent-100 font-black text-7xl mb-5 -translate-x-63.5 bg-primary-950 p-6 pb-1 w-[150%]">
             Room {name}
           </h3>
 
-          <p className="text-lg text-primary-300 mb-10">{description}</p>
+          <p className="text-lg text-primary-300 mb-10">
+            <TextExpander>{description}</TextExpander>
+          </p>
 
           <ul className="flex flex-col gap-4 mb-7">
             <li className="flex gap-3 items-center">
@@ -67,9 +81,14 @@ export default async function Page({ params }) {
       </div>
 
       <div>
-        <h2 className="text-5xl font-semibold text-center">
-          Reserve today. Pay on arrival.
+        <h2 className="text-5xl mb-10 font-semibold text-center">
+          Reserve <span className="text-accent-500"> {name}</span> today. Pay on
+          arrival.
         </h2>
+        <div className="grid grid-cols-[minmax(0,1fr)_31rem] min-h-100 border border-primary-800">
+          <DateSelector />
+          <ReservationForm />
+        </div>
       </div>
     </div>
   );

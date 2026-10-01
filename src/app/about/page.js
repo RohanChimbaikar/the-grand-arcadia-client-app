@@ -1,12 +1,17 @@
 import about1 from "@/public/about-1.png";
 import about2 from "@/public/about-2.png";
 import Image from "next/image";
+import { getCabins } from "../_lib/data-service";
 
 export const metadata = {
   title: "About",
 };
 
-export default function Page() {
+export const revalidate = 86400;
+
+export default async function Page() {
+  const rooms = await getCabins();
+
   return (
     <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
       <div className="col-span-3">
@@ -23,11 +28,11 @@ export default function Page() {
           </p>
 
           <p>
-            From beautifully appointed rooms and suites to tranquil spaces and
-            carefully curated experiences, every element has been created with
-            your comfort in mind. Whether you&apos;re here to unwind, explore,
-            or simply enjoy a slower pace, Grand Arcadia gives you space to make
-            the stay your own.
+            From our {rooms.length} beautifully appointed rooms and suites to
+            tranquil spaces and carefully curated experiences, every element has
+            been created with your comfort in mind. Whether you&apos;re here to
+            unwind, explore, or simply enjoy a slower pace, Grand Arcadia gives
+            you space to make the stay your own.
           </p>
 
           <p>

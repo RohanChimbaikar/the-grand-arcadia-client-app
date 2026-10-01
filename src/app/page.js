@@ -17,7 +17,7 @@ export default function Home() {
           src={bg}
           fill
           placeholder="blur"
-          quality={80}
+          quality={100}
           priority
           className="object-cover object-top"
           alt="Mountains and forests with two cabins"
