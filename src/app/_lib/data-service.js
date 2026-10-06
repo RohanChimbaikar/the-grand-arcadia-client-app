@@ -136,36 +136,44 @@ export async function getSettings() {
 
   return data;
 }
-
 export async function getCountries() {
   try {
-    const res = await fetch(
-      "https://api.restcountries.com/countries/v5?response_fields=names.common,flag.emoji&limit=100",
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.REST_COUNTRIES_API_KEY}`,
-        },
-        next: {
-          revalidate: 86400,
-        },
-      },
-    );
+    const allCountries = [];
+    const limit = 100;
 
-    if (!res.ok) {
-      throw new Error("Could not fetch countries");
+    for (let offset = 0; ; offset += limit) {
+      const res = await fetch(
+        `https://api.restcountries.com/countries/v5?response_fields=names.common,flag.url_svg&limit=${limit}&offset=${offset}`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REST_COUNTRIES_API_KEY}`,
+          },
+          next: {
+            revalidate: 86400,
+          },
+        },
+      );
+
+      if (!res.ok) {
+        throw new Error("Could not fetch countries");
+      }
+
+      const result = await res.json();
+
+      allCountries.push(...result.data.objects);
+
+      if (!result.data.meta.more) break;
     }
 
-    const result = await res.json();
-
-    return result.data.objects.map((country) => ({
+    return allCountries.map((country) => ({
       name: country.names.common,
-      flag: country.flag.emoji,
+      flag: country.flag.url_svg,
     }));
-  } catch {
+  } catch (err) {
+    console.error(err);
     throw new Error("Could not fetch countries");
   }
 }
-
 /////////////
 // CREATE
 
