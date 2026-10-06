@@ -3,6 +3,8 @@
 import { isWithinInterval } from "date-fns";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import { useState } from "react";
+import { useReservation } from "./ReservationContext";
 
 function isAlreadyBooked(range, datesArr) {
   return (
@@ -17,22 +19,22 @@ function isAlreadyBooked(range, datesArr) {
   );
 }
 
-function DateSelector() {
+function DateSelector({ settings, room, bookedDates }) {
+  const { range, setRange,resetRange } = useReservation();
+
   // CHANGE
   const regularPrice = 23;
   const discount = 23;
   const numNights = 23;
   const cabinPrice = 23;
-  const range = { from: null, to: null };
 
   // SETTINGS
-  const minBookingLength = 1;
-  const maxBookingLength = 23;
+  const { minBookingLength, maxBookingLength } = settings;
 
   return (
-    <div className="flex flex-col">
+    <div className="grid min-h-0 min-w-0 grid-rows-[minmax(360px,1fr)_88px]">
       <DayPicker
-        className="my-calendar w-full pt-6"
+        className="my-calendar w-full pt-6 px-8"
         mode="range"
         min={minBookingLength + 1}
         max={maxBookingLength}
@@ -41,9 +43,12 @@ function DateSelector() {
         toYear={new Date().getFullYear() + 5}
         captionLayout="dropdown"
         numberOfMonths={2}
+        disabled={{ before: new Date() }}
+        onSelect={setRange}
+        selected={range}
       />
-
-      <div className="flex h-[88px] items-center justify-between bg-accent-500 px-10 text-primary-800">
+      {console.log(range)}
+      <div className="flex h-22 items-center justify-between bg-accent-500 px-10 text-primary-800">
         <div className="flex items-center gap-6">
           <p className="flex items-baseline gap-2">
             {discount > 0 ? (
@@ -80,7 +85,7 @@ function DateSelector() {
         {range.from || range.to ? (
           <button
             className="border border-primary-800 px-4 py-2 text-sm font-semibold"
-            onClick={() => resetRange()}
+            onClick={resetRange}
           >
             Clear
           </button>

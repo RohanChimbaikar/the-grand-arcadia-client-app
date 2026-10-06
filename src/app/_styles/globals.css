@@ -1,14 +1,11 @@
 @import "tailwindcss";
 
 /* =========================================================
-   THEME TOKENS
+   1. THEME TOKENS
    ========================================================= */
 
 @theme {
-  /* =======================================================
-     PRIMARY — Slate Blue
-     ======================================================= */
-
+  /* ---------- Primary: Slate Blue ---------- */
   --color-primary-50: #e1e8ef;
   --color-primary-100: #d4dee7;
   --color-primary-200: #b7c7d7;
@@ -21,10 +18,7 @@
   --color-primary-900: #1b2631;
   --color-primary-950: #141c24;
 
-  /* =======================================================
-     ACCENT — Warm Gold
-     ======================================================= */
-
+  /* ---------- Accent: Warm Gold ---------- */
   --color-accent-50: #faf5f0;
   --color-accent-100: #f4ece1;
   --color-accent-200: #e8d6bf;
@@ -37,10 +31,7 @@
   --color-accent-900: #4b351b;
   --color-accent-950: #382814;
 
-  /* =======================================================
-     GREY — Warm Neutral
-     ======================================================= */
-
+  /* ---------- Grey: Neutral ---------- */
   --color-grey-50: #f8fafc;
   --color-grey-100: #f1f5f9;
   --color-grey-200: #e2e8f0;
@@ -53,10 +44,7 @@
   --color-grey-900: #0f172a;
   --color-grey-950: #020617;
 
-  /* =======================================================
-     SUCCESS
-     ======================================================= */
-
+  /* ---------- Success ---------- */
   --color-success-50: #f0fdf4;
   --color-success-100: #dcfce7;
   --color-success-200: #bbf7d0;
@@ -68,10 +56,7 @@
   --color-success-800: #166534;
   --color-success-900: #14532d;
 
-  /* =======================================================
-     WARNING
-     ======================================================= */
-
+  /* ---------- Warning ---------- */
   --color-warning-50: #fffbeb;
   --color-warning-100: #fef3c7;
   --color-warning-200: #fde68a;
@@ -83,10 +68,7 @@
   --color-warning-800: #92400e;
   --color-warning-900: #78350f;
 
-  /* =======================================================
-     ERROR
-     ======================================================= */
-
+  /* ---------- Error ---------- */
   --color-error-50: #fef2f2;
   --color-error-100: #fee2e2;
   --color-error-200: #fecaca;
@@ -98,10 +80,7 @@
   --color-error-800: #991b1b;
   --color-error-900: #7f1d1d;
 
-  /* =======================================================
-     INFO
-     ======================================================= */
-
+  /* ---------- Info ---------- */
   --color-info-50: #eff6ff;
   --color-info-100: #dbeafe;
   --color-info-200: #bfdbfe;
@@ -113,18 +92,12 @@
   --color-info-800: #1e40af;
   --color-info-900: #1e3a8a;
 
-  /* =======================================================
-     SHADOWS
-     ======================================================= */
-
+  /* ---------- Shadows ---------- */
   --shadow-soft: 0 2px 10px rgb(15 23 42 / 5%);
   --shadow-card: 0 4px 20px rgb(15 23 42 / 8%);
   --shadow-elevated: 0 10px 30px rgb(15 23 42 / 10%);
 
-  /* =======================================================
-     RADIUS
-     ======================================================= */
-
+  /* ---------- Radius ---------- */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
@@ -133,158 +106,20 @@
 }
 
 /* =========================================================
-   DARK MODE
-   Same variable names — different values
+   2. KEYFRAMES
    ========================================================= */
 
-.dark {
-  /* =======================================================
-     PRIMARY — Slate Blue
-     ======================================================= */
-
-  --color-primary-50: #141c24;
-  --color-primary-100: #1b2631;
-  --color-primary-200: #2c3d4f;
-  --color-primary-300: #3c546c;
-  --color-primary-400: #4c6b8a;
-  --color-primary-500: #5e82a6;
-  --color-primary-600: #7c99b6;
-  --color-primary-700: #99b0c7;
-  --color-primary-800: #b7c7d7;
-  --color-primary-900: #d4dee7;
-  --color-primary-950: #e1e8ef;
-
-  /* =======================================================
-     ACCENT — Warm Gold
-     ======================================================= */
-
-  --color-accent-50: #382814;
-  --color-accent-100: #4b351b;
-  --color-accent-200: #6c4d28;
-  --color-accent-300: #926835;
-  --color-accent-400: #b78343;
-  --color-accent-500: #c69963;
-  --color-accent-600: #d2af84;
-  --color-accent-700: #ddc2a2;
-  --color-accent-800: #e8d6bf;
-  --color-accent-900: #f4ece1;
-  --color-accent-950: #faf5f0;
-
-  /* =======================================================
-     GREY — Dark Neutral
-     ======================================================= */
-
-  --color-grey-50: #020617;
-  --color-grey-100: #0f172a;
-  --color-grey-200: #1e293b;
-  --color-grey-300: #334155;
-  --color-grey-400: #475569;
-  --color-grey-500: #64748b;
-  --color-grey-600: #94a3b8;
-  --color-grey-700: #cbd5e1;
-  --color-grey-800: #e2e8f0;
-  --color-grey-900: #f1f5f9;
-  --color-grey-950: #f8fafc;
-
-  /* =======================================================
-     SUCCESS
-     ======================================================= */
-
-  --color-success-50: #052e16;
-  --color-success-100: #14532d;
-  --color-success-200: #166534;
-  --color-success-300: #15803d;
-  --color-success-400: #16a34a;
-  --color-success-500: #22c55e;
-  --color-success-600: #4ade80;
-  --color-success-700: #86efac;
-  --color-success-800: #bbf7d0;
-  --color-success-900: #dcfce7;
-
-  /* =======================================================
-     WARNING
-     ======================================================= */
-
-  --color-warning-50: #451a03;
-  --color-warning-100: #78350f;
-  --color-warning-200: #92400e;
-  --color-warning-300: #b45309;
-  --color-warning-400: #d97706;
-  --color-warning-500: #f59e0b;
-  --color-warning-600: #fbbf24;
-  --color-warning-700: #fcd34d;
-  --color-warning-800: #fde68a;
-  --color-warning-900: #fef3c7;
-
-  /* =======================================================
-     ERROR
-     ======================================================= */
-
-  --color-error-50: #450a0a;
-  --color-error-100: #7f1d1d;
-  --color-error-200: #991b1b;
-  --color-error-300: #b91c1c;
-  --color-error-400: #dc2626;
-  --color-error-500: #ef4444;
-  --color-error-600: #f87171;
-  --color-error-700: #fca5a5;
-  --color-error-800: #fecaca;
-  --color-error-900: #fee2e2;
-
-  /* =======================================================
-     INFO
-     ======================================================= */
-
-  --color-info-50: #172554;
-  --color-info-100: #1e3a8a;
-  --color-info-200: #1e40af;
-  --color-info-300: #1d4ed8;
-  --color-info-400: #2563eb;
-  --color-info-500: #3b82f6;
-  --color-info-600: #60a5fa;
-  --color-info-700: #93c5fd;
-  --color-info-800: #bfdbfe;
-  --color-info-900: #dbeafe;
-}
-
-@layer components {
-  .spinner {
-    margin: 3.2rem auto 1.6rem;
-    width: 60px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    border: 8px solid var(--color-primary-900);
-    border-right-color: var(--color-primary-200);
-    animation: rotate 1s infinite linear;
-  }
-
-  .spinner-mini {
-    margin: 0;
-    width: 20px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    border: 2px solid var(--color-primary-200);
-    border-right-color: transparent;
-    animation: rotate 1s infinite linear;
-  }
-
-  @keyframes rotate {
-    to {
-      transform: rotate(1turn);
-    }
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
   }
 }
 
-/* For date picker */
+/* =========================================================
+   3. BASE
+   ========================================================= */
 
-.rdp {
-  --rdp-cell-size: 32px !important;
-  --rdp-accent-color: var(--color-accent-500) !important;
-  --rdp-background-color: var(--color-accent-600) !important;
-  margin: 0 !important;
-}
-
-/* Custom scrollbar */
+/* Custom scrollbar: thumb is hidden until the user is interacting */
 html {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -304,29 +139,175 @@ html::-webkit-scrollbar-thumb {
   border-radius: 999px;
 }
 
-/* Show scrollbar thumb while scrolling */
 html:active::-webkit-scrollbar-thumb {
   background: var(--color-accent-200);
 }
 
-.my-calendar.rdp {
-  width: 100%;
-  margin: 0 !important;
+/* =========================================================
+   4. COMPONENTS
+   ========================================================= */
 
-  --rdp-cell-size: 40px;
-  --rdp-accent-color: var(--color-accent-500);
-  --rdp-background-color: var(--color-accent-600);
+@layer components {
+  /* ---------- Spinners ---------- */
+  .spinner {
+    margin: 3.2rem auto 1.6rem;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid var(--color-primary-900);
+    border-right-color: var(--color-primary-200);
+    animation: rotate 1s infinite linear;
+  }
+
+  .spinner-mini {
+    margin: 0;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary-200);
+    border-right-color: transparent;
+    animation: rotate 1s infinite linear;
+  }
 }
 
-.my-calendar .rdp-months {
+/* =========================================================
+   5. THIRD-PARTY OVERRIDES: react-day-picker (v9)
+   ========================================================= */
+
+/* ---------- Shared calendar theme (all pickers) ---------- */
+.rdp-root {
+  --rdp-accent-color: var(--color-accent-500);
+  --rdp-accent-background-color: var(--color-accent-500);
+  --rdp-day-height: 40px;
+  --rdp-day-width: 40px;
+  --rdp-day_button-height: 40px;
+  --rdp-day_button-width: 40px;
+
+  /* Custom names (not --rdp-*) so the library's own values can't override them */
+  --calendar-range-bg: color-mix(
+    in oklab,
+    var(--color-accent-500) 24%,
+    transparent
+  );
+  --calendar-range-text: var(--color-accent-50);
+}
+
+/* Month / year dropdown chevrons (default is blue) */
+.rdp-root .rdp-chevron {
+  fill: var(--color-accent-300);
+}
+
+/* Weekday labels */
+.rdp-root .rdp-weekday {
+  color: var(--color-primary-300);
+}
+
+/* Hover on regular days */
+.rdp-root .rdp-day_button:hover {
+  background-color: color-mix(
+    in oklab,
+    var(--color-accent-500) 18%,
+    transparent
+  );
+}
+
+/* Today: ring instead of fill, so it never competes with the range */
+.rdp-root .rdp-today:not(.rdp-selected) .rdp-day_button {
+  box-shadow: inset 0 0 0 1px var(--color-accent-400);
+}
+
+/* Keyboard focus */
+.rdp-root .rdp-day_button:focus-visible {
+  outline: 2px solid var(--color-accent-300);
+  outline-offset: 2px;
+}
+
+/* Days that can't be picked */
+.rdp-root .rdp-disabled,
+.rdp-root .rdp-outside {
+  color: var(--color-primary-500);
+  opacity: 0.45;
+}
+
+/* ---------- Selection states ---------- */
+
+/* Check-in / check-out: solid gold circles */
+.rdp-root .rdp-range_start .rdp-day_button,
+.rdp-root .rdp-range_end .rdp-day_button {
+  background-color: var(--color-accent-500);
+  color: var(--color-primary-950);
+  font-weight: 700;
+  border: 0;
+  border-radius: 9999px;
+}
+
+.rdp-root .rdp-range_start .rdp-day_button:hover,
+.rdp-root .rdp-range_end .rdp-day_button:hover {
+  background-color: var(--color-accent-400);
+}
+
+/* Days between: tinted band with light text */
+.rdp-root .rdp-range_middle {
+  background-color: var(--calendar-range-bg);
+  color: var(--calendar-range-text);
+}
+
+.rdp-root .rdp-range_middle .rdp-day_button {
+  color: var(--calendar-range-text);
+  font-weight: 500;
+  border: 0;
+  border-radius: 0;
+}
+
+.rdp-root .rdp-range_middle .rdp-day_button:hover {
+  background-color: color-mix(
+    in oklab,
+    var(--color-accent-500) 35%,
+    transparent
+  );
+  border-radius: 9999px;
+}
+
+/* Join the band to the circles: half-band behind start and end */
+.rdp-root .rdp-range_start:not(.rdp-range_end) {
+  background: linear-gradient(
+    to right,
+    transparent 50%,
+    var(--calendar-range-bg) 50%
+  );
+}
+
+.rdp-root .rdp-range_end:not(.rdp-range_start) {
+  background: linear-gradient(
+    to left,
+    transparent 50%,
+    var(--calendar-range-bg) 50%
+  );
+}
+
+/* ---------- Booking calendar layout (.my-calendar) ---------- */
+.my-calendar {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+}
+
+/* Two months side by side */
+.my-calendar .rdp-months {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
   gap: 3rem;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  min-height: 0;
 }
 
 .my-calendar .rdp-month {
-  flex: 1;
+  min-width: 0;
 }
 
 .my-calendar .rdp-month_caption {
@@ -337,6 +318,37 @@ html:active::-webkit-scrollbar-thumb {
   margin-bottom: 0.5rem;
 }
 
+/* Month grid: 7-column weeks, 6 fixed-height rows */
+.my-calendar .rdp-month_grid {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+  height: 288px;
+  table-layout: fixed;
+}
+
+.my-calendar .rdp-month_grid thead,
+.my-calendar .rdp-month_grid tbody {
+  display: grid;
+}
+
+.my-calendar .rdp-month_grid thead tr,
+.my-calendar .rdp-month_grid tbody tr {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.my-calendar .rdp-month_grid tbody {
+  grid-template-rows: repeat(6, 40px);
+}
+
+.my-calendar .rdp-month_grid th,
+.my-calendar .rdp-month_grid td {
+  width: auto;
+  height: 40px;
+  padding: 0;
+}
+
 .my-calendar .rdp-day {
   padding: 0;
 }
@@ -344,4 +356,5 @@ html:active::-webkit-scrollbar-thumb {
 .my-calendar .rdp-day_button {
   width: 40px;
   height: 40px;
+  margin: 0 auto;
 }
