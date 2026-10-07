@@ -1,3 +1,4 @@
+import SubmitButton from "@/src/app/_components/SubmitButton";
 import { updateReservation } from "@/src/app/_lib/actions";
 import { getBooking, getCabin } from "@/src/app/_lib/data-service";
 
@@ -52,9 +53,9 @@ export default async function Page({ params }) {
         <input type="hidden" name="bookingId" value={reservationId} />
 
         <div className="flex justify-end items-center gap-6">
-          <button className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300">
+          <SubmitButton pendingLabel="Updating...">
             Update reservation
-          </button>
+          </SubmitButton>
         </div>
       </form>
     </div>
