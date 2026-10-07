@@ -1,112 +1,159 @@
 # Grand Arcadia
 
-**A luxury hotel booking experience with room discovery, date-based availability, and a private guest account.**
+A luxury hotel booking application built with Next.js, Supabase, and Auth.js. Guests can browse rooms, check availability, make reservations, and manage their stays through a private guest account.
 
-Grand Arcadia is a full-stack web application for exploring hotel rooms and managing a stay. Guests can browse rooms, check dates against existing bookings, submit a reservation, and use a Google-authenticated account to view and manage reservations and profile details.
+![Status](https://img.shields.io/badge/status-portfolio_project-blue)
+![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-19-20232a?logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?logo=supabase&logoColor=white)
+![Auth.js](https://img.shields.io/badge/Auth.js-Google_OAuth-4285F4?logo=google&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-required-5FA04E?logo=nodedotjs&logoColor=white)
+![Vercel](https://img.shields.io/badge/deploy-Vercel-000000?logo=vercel&logoColor=white)
+![Stars](https://img.shields.io/github/stars/RohanChimbaikar/the-grand-arcadia-client-app)
+![Last commit](https://img.shields.io/github/last-commit/RohanChimbaikar/the-grand-arcadia-client-app)
 
-## ✨ Features
+---
 
-- Browse rooms and filter by guest capacity.
-- View room details, pricing, and a date picker that disables unavailable dates.
-- Select a date range and guest count, add stay notes, and submit a reservation.
-- Sign in with Google using Auth.js (NextAuth.js v5).
-- Access a guest account with a personalized home page, reservation list, and profile form.
-- Edit guest count and notes on a reservation, or delete an upcoming reservation.
-- Update guest nationality and national ID details.
-- Responsive account navigation and room layouts, with a dark slate-and-gold visual theme.
+## Table of Contents
 
-## 🏨 About the Application
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Booking Flow](#booking-flow)
+- [Authentication](#authentication)
+- [Data](#data)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Deployment](#deployment)
+- [Technical Notes](#technical-notes)
+- [Current Status](#current-status)
+- [Roadmap](#roadmap)
+- [Author](#author)
+- [License](#license)
 
-Guests start by exploring available rooms and opening a room’s detail page. The availability calendar loads booked dates and booking-length settings from Supabase. A signed-in guest can select dates, choose a guest count within the room’s capacity, add optional notes, and submit a reservation.
+---
 
-After signing in, guests can review upcoming and past reservations, edit eligible reservation details, delete upcoming reservations, and update profile information. The account home page highlights the next upcoming stay when one exists and provides a useful empty state otherwise.
+## Features
 
-## 🖥️ Screenshots / Demo
+**Room discovery**
 
-No application screenshots or deployed demo URL are currently included in the repository. Add screenshots here when available.
+- Browse rooms and filter by guest capacity
+- View room details, pricing, and availability
+- Select dates with unavailable dates disabled
 
-## 🛠️ Tech Stack
+**Reservations**
 
-| Technology | Purpose |
-| --- | --- |
-| Next.js 16 (App Router) | Application framework, routing, server rendering, and API routes |
-| React 19 | UI components and interactive client-side controls |
-| Tailwind CSS 4 | Styling and design tokens |
-| Supabase JavaScript client | PostgreSQL-backed application data access |
-| Auth.js / NextAuth.js 5 beta | Google OAuth sign-in and session handling |
-| Server Components and Server Actions | Server-side data rendering and form mutations |
-| `react-day-picker` | Reservation date-range selection |
-| `date-fns` | Date calculations and formatting |
-| Heroicons | Interface icons |
-| Sonner | Toast notifications |
-| ESLint 9 | Linting |
-| npm | Dependency management, with `package-lock.json` checked in |
+- Create reservations with guest count and stay notes
+- Sign in with Google
+- Edit or delete eligible reservations
 
-## 🏗️ Architecture
+**Guest account**
 
-The active application uses the Next.js App Router under `src/app`. Pages and layouts are primarily Server Components, fetching the data they need on the server. Interactive elements such as the date selector, capacity filter, reservation list, and navigation use Client Components.
+- Personalized dashboard showing your next upcoming stay
+- View upcoming and past reservations
+- Manage guest profile information
 
-Supabase access is centralized in `src/app/_lib/data-service.js`. This layer provides reads and mutations for rooms (`cabins`), guests, bookings, and settings. Server Actions in `src/app/_lib/actions.js` handle guest profile updates, reservation creation, editing and deletion, and sign-in/sign-out redirects; affected paths are revalidated after mutations.
+**Design**
 
-Auth.js is configured in `src/app/_lib/auth.js`. Its Google sign-in callback creates a guest record when needed, and its session callback attaches the matching guest ID to the session. `src/proxy.js` applies authentication to `/account` and its nested routes. The app also includes a room availability API route at `/api/room/[roomId]`.
+- Responsive layouts for rooms and account pages
+- Dark slate and gold visual theme
 
-## 📁 Project Structure
+---
+
+## Tech Stack
+
+| Technology                                                                                           | Purpose                             |
+| ---------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| ![Next.js](https://img.shields.io/badge/Next.js_16-000000?logo=nextdotjs&logoColor=white)            | Application framework and routing   |
+| ![React](https://img.shields.io/badge/React_19-20232a?logo=react&logoColor=61DAFB)                   | UI and interactive components       |
+| ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?logo=tailwindcss&logoColor=white) | Styling                             |
+| ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?logo=supabase&logoColor=white)              | PostgreSQL database and data access |
+| ![Auth.js](https://img.shields.io/badge/Auth.js-4285F4?logo=google&logoColor=white)                  | Google authentication and sessions  |
+| ![React Day Picker](https://img.shields.io/badge/React_Day_Picker-61DAFB?logo=react&logoColor=black) | Reservation date selection          |
+| ![date-fns](https://img.shields.io/badge/date--fns-770C56?logo=date-fns&logoColor=white)             | Date calculations and formatting    |
+| ![Heroicons](https://img.shields.io/badge/Heroicons-8B5CF6?logo=heroicons&logoColor=white)           | UI icons                            |
+| ![Sonner](https://img.shields.io/badge/Sonner-000000)                                                | Toast notifications                 |
+
+---
+
+## Booking Flow
+
+```mermaid
+flowchart LR
+    A[Browse rooms] --> B[Open room details]
+    B --> C[Select dates and guests]
+    C --> D[Add optional notes]
+    D --> E{Signed in?}
+    E -- No --> F[Sign in with Google]
+    F --> G
+    E -- Yes --> G[Submit reservation]
+    G --> H[Manage from guest account]
+```
+
+> [!NOTE]
+> Reservations are currently created with an `unconfirmed` status. Online payment is not part of the current implementation.
+
+---
+
+## Authentication
+
+Authentication uses Auth.js / NextAuth.js with Google as the configured provider.
+
+1. When a user signs in, the app looks up the matching guest record, creating one if necessary.
+2. The guest ID is attached to the session.
+3. That ID is used to access account-specific data.
+
+Account routes are protected, and reservations are always associated with the authenticated guest.
+
+---
+
+## Data
+
+Grand Arcadia uses Supabase for application data.
+
+| Table      | Purpose                                                   |
+| ---------- | --------------------------------------------------------- |
+| `cabins`   | Room details, capacity, pricing, images, and descriptions |
+| `guests`   | Guest identity and profile information                    |
+| `bookings` | Reservations, dates, guest count, pricing, and status     |
+| `settings` | Booking-length rules used by the availability calendar    |
+
+The Supabase client and database operations live in the application's data-service layer rather than being spread throughout the UI.
+
+---
+
+## Project Structure
 
 ```text
 src/
 ├── app/
-│   ├── _components/       # Shared navigation, room, booking, and form UI
-│   ├── _lib/              # Auth.js setup, Supabase client, data services, actions
-│   ├── _styles/           # Global Tailwind theme and styles
-│   ├── about/             # Hotel information
-│   ├── account/           # Guest home, profile, and reservation pages
-│   ├── api/               # Auth.js and room availability API routes
-│   ├── rooms/             # Room listing, details, and booking confirmation
-│   ├── error.js           # Application error boundary
-│   ├── loading.js         # Application loading UI
-│   ├── layout.js          # Root layout and shared providers
-│   └── page.js            # Public home page
-├── proxy.js               # Auth.js protection for account routes
-└── starter/               # Starter/example components; not active app routes
+│   ├── _components/       # Shared UI components
+│   ├── _lib/              # Auth, Supabase, data services, and actions
+│   ├── _styles/           # Global styles and Tailwind theme
+│   ├── about/             # About page
+│   ├── account/           # Guest dashboard, profile, and reservations
+│   ├── api/               # API routes
+│   ├── rooms/             # Room listing and booking pages
+│   ├── error.js           # Error boundary
+│   ├── loading.js         # Loading UI
+│   ├── layout.js          # Root layout
+│   └── page.js            # Home page
+├── proxy.js               # Account route protection
+└── ...
+
 public/                    # Brand assets and static images
 ```
 
-## 🔐 Authentication & Authorization
+---
 
-Authentication uses Auth.js / NextAuth.js v5 with Google as the configured provider. The sign-in callback looks up the guest by email and creates a guest record if one does not exist. The session callback loads the guest and adds its database ID to `session.user.guestId`.
+## Getting Started
 
-The Auth.js proxy protects `/account` and all nested account routes. Reservation creation requires an authenticated session and associates the new booking with that session’s guest ID. Reservation deletion checks that the booking belongs to the signed-in guest. The current reservation update action checks that a user is signed in, but does not verify ownership of the booking; strengthen this authorization before using the application with untrusted users.
+### Requirements
 
-## 🗄️ Database
-
-The data-service layer uses these Supabase tables:
-
-| Table | Role in the application |
-| --- | --- |
-| `cabins` | Room details, capacity, pricing, discount, image, and description |
-| `guests` | Guest identity and profile details; guest email is used to look up the account |
-| `bookings` | Stay dates, guest and room references, guest count, nights, price, status, and stay notes |
-| `settings` | Minimum and maximum booking length used by the availability calendar |
-
-Bookings reference a guest through `guestID` and a room through `cabinID`. The code queries related room names and images when loading guest reservations. Database migrations or schema definitions are not included in this repository; configure the Supabase project with the tables and relationships expected by the application.
-
-## 📅 Booking Flow
-
-1. Browse `/rooms` and optionally filter by room capacity.
-2. Open a room page to see its details, price, and availability calendar.
-3. Select available dates, choose the number of guests, and optionally provide stay notes.
-4. Sign in with Google if not already authenticated, then submit the reservation.
-5. The server action records the booking in Supabase with an initial `unconfirmed` status and redirects to the confirmation page. The room page states that payment is due on arrival; online payment processing is not implemented.
-6. View and manage reservations from the guest account. Upcoming reservations can be edited or deleted from the existing reservation list.
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js compatible with the installed Next.js 16 release.
-- npm.
-- A Supabase project with the tables and relationships used by the data-service layer.
-- Google OAuth credentials for Auth.js.
+- Node.js
+- npm
+- A Supabase project configured with the required tables
+- Google OAuth credentials
 
 ### Installation
 
@@ -120,64 +167,89 @@ npm install
 
 Create a `.env.local` file in the project root:
 
-```dotenv
+```env
 SUPABASE_URL=
 SUPABASE_KEY=
 AUTH_GOOGLE_ID=
 AUTH_GOOGLE_SECRET=
 ```
 
-Set `SUPABASE_URL` and `SUPABASE_KEY` to the Supabase project values used by the server-side Supabase client. Set `AUTH_GOOGLE_ID` and `AUTH_GOOGLE_SECRET` to the credentials for a Google OAuth client configured with the appropriate Auth.js callback URL. Keep credentials private and do not commit `.env.local`.
+Add the values from your Supabase project and Google OAuth configuration.
 
-### Run the Development Server
+> [!WARNING]
+> Keep `.env.local` private and never commit credentials to the repository.
+
+### Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+The application will be available at `http://localhost:3000`.
 
-Other available scripts:
+<details>
+<summary>Other available scripts</summary>
 
 ```bash
-npm run build
-npm run start
-npm run lint
+npm run build    # Create a production build
+npm run start    # Run the production build
+npm run lint     # Lint the codebase
 ```
 
-## 🌐 Deployment
+</details>
 
-The project can be deployed to Vercel or another platform that supports Next.js. Configure the four environment variables above in the deployment environment, and ensure the Supabase database and Google OAuth callback configuration are set up for the deployed origin. No production deployment URL is currently specified in the repository.
+---
 
-## 🎨 Design
+## Deployment
 
-The interface uses a deep slate-blue background, warm gold accents, and EB Garamond typography for an understated luxury-hospitality feel. Tailwind theme tokens are defined in `src/app/_styles/globals.css`. Room pages, booking controls, and the guest account adapt their layouts for narrower screens.
+Grand Arcadia can be deployed to Vercel.
 
-## 🧠 Technical Highlights
+1. Add the same environment variables used locally to your Vercel project.
+2. Make sure the Google OAuth callback configuration includes your deployed application URL.
 
-- Server-rendered room, account, and profile pages load data through the shared Supabase service layer.
-- The room detail route generates metadata and static route parameters from room data.
-- Room listings revalidate hourly, and the about page revalidates daily.
-- The availability calendar uses database bookings and configurable minimum/maximum stay lengths.
-- Server Actions handle reservation and profile mutations; reservation deletion uses React optimistic UI.
-- Loading fallbacks, room-specific not-found UI, a root error boundary, and toast feedback support common navigation and mutation states.
-- The account home derives its next stay and stay counts from the signed-in guest’s booking data.
+---
 
-## 📌 Project Status
+## Technical Notes
 
-Grand Arcadia is an actively developed portfolio application. Core room discovery, guest authentication, reservation creation, and guest account flows are implemented. It is not ready to be treated as a production booking platform without further work: in particular, enforce guest ownership in reservation updates, review server-side validation and authorization, and add a payment workflow if online payments are required. The repository does not include database migrations or an automated test suite.
+<details>
+<summary>Implementation highlights</summary>
 
-## 🔮 Future Improvements
+- **Server Components** are used for pages that can fetch their data on the server.
+- **Server Actions** handle reservation and profile mutations.
+- **Supabase access** is centralized in the data-service layer.
+- **Room availability** is calculated from existing bookings and the configured booking-length limits.
+- **Account routes** are protected through the application's Auth.js setup.
+- **Affected pages are revalidated** after reservation and profile changes.
+- **The account home** derives upcoming stays and reservation counts from the signed-in guest's booking data.
+- **Loading and error states** are included for the main application flows.
 
-- Enforce ownership and validate all booking mutations on the server.
-- Add booking confirmation and reminder emails.
-- Integrate online payment if the hotel should accept payment before arrival.
-- Add database migrations and automated tests for booking and authorization flows.
+</details>
 
-## 👨‍💻 Author
+---
 
-Rohan Chimbaikar
+## Current Status
 
-## 📄 License
+Grand Arcadia is a portfolio project with the main room discovery, authentication, reservation, and guest account flows implemented.
 
-No license file is currently present in the repository. Add a license if you intend to specify reuse or distribution terms.
+> [!IMPORTANT]
+> Before treating this as a production booking platform, the server-side authorization and validation around reservation updates should be strengthened. Online payments, automated tests, and database migrations are also not currently included.
+
+---
+
+## Roadmap
+
+- [ ] Add online payment processing
+- [ ] Send reservation confirmation and reminder emails
+- [ ] Strengthen server-side authorization and validation
+- [ ] Add automated tests
+- [ ] Add database migrations
+
+---
+
+## Author
+
+**Rohan Chimbaikar**
+
+[![GitHub](https://img.shields.io/badge/GitHub-RohanChimbaikar-181717?logo=github&logoColor=white)](https://github.com/RohanChimbaikar)
+
+---
