@@ -2,6 +2,7 @@
 
 A luxury hotel booking application built with Next.js, Supabase, and Auth.js. Guests can browse rooms, check availability, make reservations, and manage their stays through a private guest account.
 
+![License](https://img.shields.io/badge/license-none-lightgrey)
 ![Status](https://img.shields.io/badge/status-portfolio_project-blue)
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-20232a?logo=react&logoColor=61DAFB)
@@ -17,6 +18,7 @@ A luxury hotel booking application built with Next.js, Supabase, and Auth.js. Gu
 
 ## Table of Contents
 
+- [Demo](#demo)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Booking Flow](#booking-flow)
@@ -30,6 +32,10 @@ A luxury hotel booking application built with Next.js, Supabase, and Auth.js. Gu
 - [Roadmap](#roadmap)
 - [Author](#author)
 - [License](#license)
+
+---
+
+## Demo
 
 ---
 
@@ -253,3 +259,7 @@ Grand Arcadia is a portfolio project with the main room discovery, authenticatio
 [![GitHub](https://img.shields.io/badge/GitHub-RohanChimbaikar-181717?logo=github&logoColor=white)](https://github.com/RohanChimbaikar)
 
 ---
+
+## License
+
+No license has been added to the repository yet.

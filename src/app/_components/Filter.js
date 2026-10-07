@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const filters = [
-  { value: "all", label: "All Guests" },
+  { value: "all", label: "All Rooms" },
   { value: "small", label: "1 \u2014 3 Guests" },
   { value: "medium", label: "4 \u2014 7 Guests" },
   { value: "large", label: "8 \u2014 12 Guests" },
@@ -25,7 +25,9 @@ function Filter() {
               filter === "all" ? "/rooms" : `/rooms?capacity=${filter.value}`
             }
             className={`px-5 py-2 hover:bg-primary-700 ${
-              currentFilter === filter.value ? "bg-primary-700 text-accent-50 font-semibold" : ""
+              currentFilter === filter.value
+                ? "bg-primary-700 text-accent-50 font-semibold"
+                : ""
             }`}
             scroll={false}
           >
