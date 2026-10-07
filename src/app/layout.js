@@ -2,6 +2,7 @@ import "@/src/app/_styles/globals.css";
 import { EB_Garamond } from "next/font/google";
 import Header from "./_components/Header";
 import { ReservationProvider } from "./_components/ReservationContext";
+import { Toaster } from "sonner";
 
 const garamond = EB_Garamond({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
             <ReservationProvider>{children}</ReservationProvider>
           </main>
         </div>
+        <Toaster position="top-center" richColors closeButton />
       </body>
     </html>
   );

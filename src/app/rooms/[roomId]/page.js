@@ -1,18 +1,5 @@
-import {
-  EyeSlashIcon,
-  MapPinIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/outline";
-import {
-  getBookedDatesByCabinId,
-  getCabin,
-  getCabins,
-  getSettings,
-} from "../../_lib/data-service";
-import Image from "next/image";
-import TextExpander from "../../_components/TextExpander";
-import DateSelector from "../../_components/DateSelector";
-import ReservationForm from "../../_components/ReservationForm";
+import { getCabin, getCabins } from "../../_lib/data-service";
+
 import Reservation from "../../_components/Reservation";
 import { Suspense } from "react";
 import Spinner from "../../_components/Spinner";
