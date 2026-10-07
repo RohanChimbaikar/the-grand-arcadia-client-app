@@ -37,6 +37,10 @@ A luxury hotel booking application built with Next.js, Supabase, and Auth.js. Gu
 
 ## Demo
 
+
+Uploading 2026-10-07 23-56-17_segment_000001170_to_000155170.mp4…
+
+
 ---
 
 ## Features
